@@ -39,36 +39,33 @@
 
   <div class="max-w-5xl text-center p-10 bg-black/80 rounded-3xl shadow-2xl">
     <h1 class="text-5xl font-extrabold mb-4 text-yellow-400">🌍 Bienvenido a Almeralandia</h1>
-    <p class="text-lg mb-8">Tu modpack NeoForge 1.21.1 — instala y actualiza fácilmente, sin complicaciones.</p>
+    <p class="text-lg mb-8">Tu modpack NeoForge 1.21.1 — instala y actualiza fácilmente con un solo clic.</p>
 
     <div class="text-left space-y-8">
 
       <!-- Step 1 -->
       <div class="step p-4 bg-gray-900/50 rounded-xl hover:bg-gray-800/60 transition">
-        <h2 class="text-2xl font-bold text-green-400 mb-2">1️⃣ Descarga los actualizadores</h2>
-        <p class="ml-4 mb-2">Aquí encontrarás los scripts de actualización para ambos tipos de usuarios:</p>
-        <ul class="ml-8 list-disc">
-          <li><b>CurseForge (Premium):</b> actualizador para jugadores Premium.</li>
-          <li><b>TLauncher (No Premium):</b> actualizador para jugadores No Premium.</li>
-        </ul>
-        <p class="ml-4 mt-2">Ambos scripts descargarán automáticamente los <b>mods, config y shaderpacks</b> más recientes.</p>
+        <h2 class="text-2xl font-bold text-green-400 mb-2">1️⃣ Descarga el actualizador</h2>
+        <p class="ml-4 mb-2">Solo necesitas un archivo <b>.bat</b> para actualizar tu modpack, ya uses <b>TLauncher</b> o <b>CurseForge</b>.</p>
+        <p class="ml-4">El actualizador descargará automáticamente los <b>mods, config y shaders</b> más recientes desde nuestro Dropbox.</p>
       </div>
 
       <!-- Step 2 -->
       <div class="step p-4 bg-gray-900/50 rounded-xl hover:bg-gray-800/60 transition">
-        <h2 class="text-2xl font-bold text-blue-400 mb-2">2️⃣ Ejecuta el actualizador correspondiente</h2>
-        <p class="ml-4 mb-2">Abre la carpeta descargada y haz doble clic en el script que corresponda a tu launcher:</p>
+        <h2 class="text-2xl font-bold text-blue-400 mb-2">2️⃣ Ejecuta el actualizador</h2>
+        <p class="ml-4 mb-2">Abre el archivo <code>actualizar_almeralandia.bat</code> y selecciona:</p>
         <ul class="ml-8 list-disc">
-          <li><b>CurseForge (Premium):</b> <code>actualizar_almeralandia_curseforge.bat</code></li>
-          <li><b>TLauncher (No Premium):</b> <code>actualizar_almeralandia_tlauncher.bat</code></li>
+          <li><b>1:</b> para actualizar TLauncher.</li>
+          <li><b>2:</b> para actualizar CurseForge.</li>
+          <li><b>3:</b> para actualizar ambos.</li>
         </ul>
-        <p class="ml-4 mt-2">El script actualizará automáticamente el modpack sin tocar tus mundos guardados.</p>
+        <p class="ml-4 mt-2">El proceso es rápido — solo copia los archivos nuevos o modificados. 🧠</p>
       </div>
 
       <!-- Step 3 -->
       <div class="step p-4 bg-gray-900/50 rounded-xl hover:bg-gray-800/60 transition">
         <h2 class="text-2xl font-bold text-purple-400 mb-2">3️⃣ Conéctate al servidor</h2>
-        <p class="ml-4">En el launcher, selecciona el servidor <b>Almeralandia NeoForge 1.21.1</b> y haz clic en <b>Jugar</b>.</p>
+        <p class="ml-4">En tu launcher, selecciona el servidor <b>Almeralandia NeoForge 1.21.1</b> y pulsa <b>Jugar</b>.</p>
         <p class="ml-4 mt-2">🖥️ <b>IP:</b> <code>Almeralandia.aternos.me:59528</code></p>
       </div>
 
@@ -77,14 +74,15 @@
         <h2 class="text-2xl font-bold text-pink-400 mb-2">👥 Modos de acceso</h2>
         <ul class="ml-6 list-disc">
           <li><b>Premium:</b> inicia sesión con Microsoft.</li>
-          <li><b>Crack:</b> usa “Modo Offline” e ingresa tu nombre.</li>
+          <li><b>No Premium:</b> usa “Modo Offline” en TLauncher e ingresa tu nombre.</li>
         </ul>
       </div>
 
       <!-- Auto updates -->
       <div class="step p-4 bg-gray-900/50 rounded-xl hover:bg-gray-800/60 transition">
         <h2 class="text-2xl font-bold text-orange-400 mb-2">🧩 Actualizaciones automáticas</h2>
-        <p class="ml-4">Cada vez que agreguemos nuevos mods, se descargarán automáticamente al ejecutar el script correspondiente.</p>
+        <p class="ml-4">Cada vez que agreguemos nuevos mods o configuraciones, se descargarán automáticamente al ejecutar el script.</p>
+        <p class="ml-4 mt-1 text-sm text-gray-300">No borra tus mundos ni configuraciones personales.</p>
       </div>
 
       <!-- FAQ Section -->
@@ -98,8 +96,8 @@
             </button>
             <div class="faq-answer text-gray-300">
               - Verifica tu conexión a internet.<br>
-              - Asegúrate de no haber borrado el ZIP del Drive o de que el ID en el script sea correcto.<br>
-              - Cierra Minecraft o TLauncher antes de ejecutar el .bat.
+              - Asegúrate de que el enlace de Dropbox no haya cambiado.<br>
+              - Cierra Minecraft, CurseForge o TLauncher antes de ejecutar el .bat.
             </div>
           </div>
 
@@ -108,8 +106,8 @@
               El modpack no se actualiza correctamente
             </button>
             <div class="faq-answer text-gray-300">
-              - Confirma que ejecutaste el script correcto según tu launcher (CurseForge o TLauncher).<br>
-              - Revisa que la carpeta de destino exista.<br>
+              - Confirma que seleccionaste el número correcto según tu launcher.<br>
+              - Verifica que la carpeta de destino exista.<br>
               - Ejecuta el script como administrador si hay problemas de permisos.
             </div>
           </div>
@@ -119,8 +117,8 @@
               Mis mundos se perdieron tras actualizar
             </button>
             <div class="faq-answer text-gray-300">
-              - Esto no debería ocurrir, los scripts no tocan la carpeta <code>saves</code>.<br>
-              - Asegúrate de no mover ni eliminar tu carpeta <code>saves</code> manualmente.
+              - No te preocupes, los scripts no tocan la carpeta <code>saves</code>.<br>
+              - Si no ves tus mundos, revisa que estés en la misma versión del modpack.
             </div>
           </div>
 
@@ -131,10 +129,10 @@
 
     <!-- Download Buttons -->
     <div class="mt-12 flex flex-wrap justify-center gap-6">
-      <a href="https://drive.google.com/drive/folders/1cF-Y6Xblh9_m7g43tQcXq0F9K14LTbO1?usp=sharing"
+      <a href="https://www.dropbox.com/scl/fi/q8wd2tbbjybq7j3fcjsit/Almeralandia_Update.zip?rlkey=malu2o1xb6quwvqw97na9jqrq&st=7jno6389&dl=1"
          target="_blank"
          class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-2xl text-lg shadow-lg transform hover:scale-105 transition-all">
-         🔽 Descargar Actualizadores
+         🔽 Descargar Actualizador (.bat)
       </a>
       <a href="https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.213/neoforge-21.1.213-installer.jar"
          target="_blank"
