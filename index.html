@@ -9,15 +9,16 @@
     body {
       background: url('https://i.pinimg.com/736x/61/da/39/61da398468d98b910891ea3ac0678bda.jpg') no-repeat center center fixed;
       background-size: cover;
+      font-family: 'Inter', sans-serif;
     }
     .bg-overlay {
-      background-color: rgba(0, 0, 0, 0.8);
+      background: linear-gradient(to bottom right, rgba(0,0,0,0.85), rgba(20,20,40,0.85));
     }
     .faq-item button {
       transition: all 0.3s ease;
     }
     .faq-item button:hover {
-      color: #FFD700;
+      color: #ff69b4;
     }
     .faq-answer {
       max-height: 0;
@@ -31,51 +32,47 @@
     }
     a.underline-hover:hover {
       text-decoration: underline;
-      color: #FFD700;
+      color: #ff69b4;
     }
   </style>
 </head>
-<body class="text-white min-h-screen flex flex-col justify-center items-center bg-overlay font-sans">
+<body class="text-white min-h-screen flex flex-col justify-center items-center bg-overlay">
 
-  <div class="max-w-6xl text-center p-12 bg-black/90 rounded-3xl shadow-2xl">
-    <h1 class="text-5xl font-extrabold mb-6 text-yellow-400">🌍 Bienvenido a Almeralandia</h1>
-    <p class="text-lg mb-10">Tu modpack NeoForge 1.21.1 — instala y actualiza fácilmente, sin complicaciones.</p>
+  <div class="max-w-6xl text-center p-12 bg-black/80 rounded-3xl shadow-2xl">
+    <h1 class="text-5xl font-extrabold mb-6 text-pink-500">🌟 Almeralandia NeoForge 1.21.1</h1>
+    <p class="text-lg mb-12 text-gray-300">Tu modpack actualizado y listo para jugar — fácil instalación y actualización automática.</p>
 
-    <div class="text-left space-y-10">
+    <div class="space-y-12 text-left">
 
       <!-- Step 1 -->
-      <div class="step p-6 bg-gray-900/50 rounded-2xl hover:bg-gray-800/60 transition shadow-lg">
-        <h2 class="text-3xl font-bold text-green-400 mb-4">1️⃣ Descarga los actualizadores</h2>
-        <p class="ml-2 mb-2">Para los nuevos jugadores: al dar clic en "Descargar Actualizador", recibirás <b>todosLosMods_almeralandia_launcher.bat</b> que descarga todo el modpack desde cero.</p>
-        <p class="ml-2 mb-2">Para los jugadores recurrentes: se recomienda <b>Last_updater.bat</b>, que solo actualiza los mods y recursos nuevos sin tocar tus mundos existentes.</p>
-        <p class="ml-2 mb-2">Compatibilidad con:</p>
-        <ul class="ml-8 list-disc">
-          <li><b>CurseForge (Premium)</b></li>
-          <li><b>TLauncher (No Premium)</b></li>
-        </ul>
+      <div class="step p-6 bg-gradient-to-r from-purple-700 via-pink-600 to-pink-400 rounded-3xl shadow-lg transform hover:scale-105 transition-all">
+        <h2 class="text-3xl font-bold mb-4">1️⃣ Descarga los actualizadores</h2>
+        <p class="ml-2 mb-2">Para nuevos jugadores: <b>todosLosMods_almeralandia_launcher.bat</b> descarga el modpack completo desde cero.</p>
+        <p class="ml-2 mb-2">Para jugadores recurrentes: <b>Last_updater.bat</b> solo actualiza mods y recursos recientes, sin afectar tus mundos guardados.</p>
+        <p class="ml-2 mb-2">Ambos archivos funcionan tanto para <b>TLauncher</b> como <b>CurseForge</b>, seleccionando la opción dentro del script (1 = TLauncher, 2 = CurseForge).</p>
       </div>
 
       <!-- Step 2 -->
-      <div class="step p-6 bg-gray-900/50 rounded-2xl hover:bg-gray-800/60 transition shadow-lg">
-        <h2 class="text-3xl font-bold text-blue-400 mb-4">2️⃣ Ejecuta el actualizador correspondiente</h2>
-        <p class="ml-2 mb-2">Abre la carpeta descargada y haz doble clic en el script adecuado a tu launcher:</p>
-        <ul class="ml-8 list-disc">
-          <li><b>CurseForge (Premium):</b> <code>actualizar_almeralandia_curseforge.bat</code></li>
-          <li><b>TLauncher (No Premium):</b> <code>actualizar_almeralandia_tlauncher.bat</code></li>
+      <div class="step p-6 bg-gradient-to-r from-blue-500 via-cyan-400 to-green-400 rounded-3xl shadow-lg transform hover:scale-105 transition-all">
+        <h2 class="text-3xl font-bold mb-4">2️⃣ Ejecuta el actualizador</h2>
+        <p class="ml-2 mb-2">Abre la carpeta descargada y haz doble clic en el archivo .bat que corresponde a tu caso:</p>
+        <ul class="ml-8 list-disc text-gray-100">
+          <li>Para nuevos jugadores: <b>todosLosMods_almeralandia_launcher.bat</b></li>
+          <li>Para jugadores recurrentes: <b>Last_updater.bat</b></li>
         </ul>
-        <p class="ml-2 mt-2">El script actualizará automáticamente mods, configs y shaderpacks sin borrar tus mundos guardados.</p>
+        <p class="ml-2 mt-2 text-gray-100">Dentro del script podrás elegir <b>1 = TLauncher</b> o <b>2 = CurseForge</b>. El proceso actualizará mods, configs y shaders automáticamente, preservando tus mundos.</p>
       </div>
 
       <!-- Step 3 -->
-      <div class="step p-6 bg-gray-900/50 rounded-2xl hover:bg-gray-800/60 transition shadow-lg">
-        <h2 class="text-3xl font-bold text-purple-400 mb-4">3️⃣ Conéctate al servidor</h2>
-        <p class="ml-2 mb-2">En tu launcher, selecciona el servidor <b>Almeralandia NeoForge 1.21.1</b> y haz clic en <b>Jugar</b>.</p>
+      <div class="step p-6 bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 rounded-3xl shadow-lg transform hover:scale-105 transition-all">
+        <h2 class="text-3xl font-bold mb-4">3️⃣ Conéctate al servidor</h2>
+        <p class="ml-2 mb-2">Selecciona en tu launcher el servidor <b>Almeralandia NeoForge 1.21.1</b> y haz clic en <b>Jugar</b>.</p>
         <p class="ml-2 mt-2">🖥️ <b>IP:</b> <code>Almeralandia.aternos.me:59528</code></p>
       </div>
 
       <!-- Access Modes -->
-      <div class="step p-6 bg-gray-900/50 rounded-2xl hover:bg-gray-800/60 transition shadow-lg">
-        <h2 class="text-3xl font-bold text-pink-400 mb-4">👥 Modos de acceso</h2>
+      <div class="step p-6 bg-gradient-to-r from-indigo-600 via-purple-700 to-pink-600 rounded-3xl shadow-lg transform hover:scale-105 transition-all">
+        <h2 class="text-3xl font-bold mb-4">👥 Modos de acceso</h2>
         <ul class="ml-6 list-disc">
           <li><b>Premium:</b> inicia sesión con Microsoft.</li>
           <li><b>Crack:</b> usa “Modo Offline” e ingresa tu nombre.</li>
@@ -83,14 +80,14 @@
       </div>
 
       <!-- Auto updates -->
-      <div class="step p-6 bg-gray-900/50 rounded-2xl hover:bg-gray-800/60 transition shadow-lg">
-        <h2 class="text-3xl font-bold text-orange-400 mb-4">🧩 Actualizaciones automáticas</h2>
+      <div class="step p-6 bg-gradient-to-r from-green-400 via-lime-400 to-yellow-300 rounded-3xl shadow-lg transform hover:scale-105 transition-all">
+        <h2 class="text-3xl font-bold mb-4">🧩 Actualizaciones automáticas</h2>
         <p class="ml-2">Cada vez que agreguemos nuevos mods, se descargarán automáticamente al ejecutar el script correspondiente.</p>
       </div>
 
       <!-- FAQ Section -->
       <div class="mt-12">
-        <h2 class="text-4xl font-bold text-yellow-400 mb-8">❓ Preguntas Frecuentes</h2>
+        <h2 class="text-4xl font-bold text-pink-500 mb-8">❓ Preguntas Frecuentes</h2>
         <div class="space-y-6">
 
           <div class="faq-item border border-gray-700 rounded-2xl p-4 bg-gray-900/50">
@@ -109,7 +106,7 @@
               El modpack no se actualiza correctamente
             </button>
             <div class="faq-answer text-gray-300">
-              - Confirma que ejecutaste el script correcto según tu launcher (CurseForge o TLauncher).<br>
+              - Confirma que ejecutaste el script correcto según tu launcher.<br>
               - Revisa que la carpeta de destino exista.<br>
               - Ejecuta el script como administrador si hay problemas de permisos.
             </div>
@@ -134,23 +131,23 @@
     <div class="mt-14 flex flex-wrap justify-center gap-6">
       <a href="https://drive.google.com/drive/folders/1cF-Y6Xblh9_m7g43tQcXq0F9K14LTbO1?usp=sharing"
          target="_blank"
-         class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-10 rounded-3xl text-lg shadow-lg transform hover:scale-105 transition-all">
+         class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-4 px-10 rounded-3xl text-lg shadow-xl transform hover:scale-110 transition-all">
          🔽 Descargar Actualizadores
       </a>
       <a href="https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.213/neoforge-21.1.213-installer.jar"
          target="_blank"
-         class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-10 rounded-3xl text-lg shadow-lg transform hover:scale-105 transition-all">
+         class="bg-cyan-500 hover:bg-cyan-600 text-black font-bold py-4 px-10 rounded-3xl text-lg shadow-xl transform hover:scale-110 transition-all">
          🛠 Descargar NeoForge
       </a>
       <a href="https://drive.google.com/drive/folders/1cF-Y6Xblh9_m7g43tQcXq0F9K14LTbO1?usp=sharing"
          target="_blank"
-         class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-3xl text-lg shadow-lg transform hover:scale-105 transition-all">
+         class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-4 px-10 rounded-3xl text-lg shadow-xl transform hover:scale-110 transition-all">
          ✨ Actualizar Emotes
       </a>
     </div>
 
-    <p class="mt-12 text-gray-400 text-sm">© 2025 Almeralandia — Servidor NeoForge 1.21.1</p>
-    <p class="text-gray-400 text-sm">💬 Creado por whoiisjr ❤️ | 🧪 Tested by Alx20</p>
+    <p class="mt-12 text-gray-300 text-sm">© 2025 Almeralandia — Servidor NeoForge 1.21.1</p>
+    <p class="text-gray-300 text-sm">💬 Creado por whoiisjr ❤️ | 🧪 Tested by Alx20</p>
   </div>
 
   <script>
