@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tienda Almeralandia</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -11,10 +11,7 @@
       padding: 0;
       font-family: sans-serif;
     }
-    a {
-      color: #FFD700;
-      text-decoration: underline;
-    }
+    a { color: #FFD700; text-decoration: underline; }
     .modal {
       position: fixed;
       inset: 0;
@@ -28,7 +25,7 @@
       background: #111;
       padding: 2rem;
       border-radius: 1rem;
-      max-width: 400px;
+      max-width: 420px;
       text-align: center;
       color: white;
     }
@@ -38,17 +35,9 @@
       font-weight: bold;
       color: #FFD700;
     }
-    .modal a {
-      color: #FFD700;
-      word-break: break-all;
-    }
-    ul {
-      text-align: left;
-      margin-left: 1.5rem;
-    }
-    li::before {
-      content: "🟩 ";
-    }
+    .modal a { color: #FFD700; word-break: break-all; }
+    ul { text-align: left; margin-left: 1rem; }
+    ul li { margin-bottom: 0.25rem; }
   </style>
 </head>
 <body class="min-h-screen relative flex flex-col justify-center items-center">
@@ -85,9 +74,9 @@
         <img src="https://i.pinimg.com/736x/56/b9/3e/56b93e1f2e5661532b516877c8296828.jpg" alt="Pack Reportador de Bugs" class="mb-2 rounded-lg">
         <ul class="text-white/80">
           <li>Todo lo del Pack Gratis</li>
-          <li>1 artefacto adicional del mod Artifacts</li>
-          <li>1 stack adicional de pan</li>
-          <li>1 tótem de inmortalidad</li>
+          <li>+ 1 artefacto adicional del mod Artifacts</li>
+          <li>+ 1 stack adicional de pan</li>
+          <li>+ 1 tótem de inmortalidad</li>
         </ul>
         <p class="text-sm text-yellow-400 mt-2">Cada bug que reportes será recompensado 💰</p>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="openModal('Pack Reportador de Bugs', 'https://discord.gg/uY4v5Hsq')">Comprar</button>
@@ -115,7 +104,7 @@
           <li>3 artefactos aleatorios</li>
           <li>Materiales del mod Create</li>
           <li>Bloques de redstone y hierro</li>
-          <li>1 mochila de viajero</li>
+          <li>1 mochila de viajero (Travelers Backpack)</li>
         </ul>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="openModal('Pack de Automatización', 'https://discord.gg/uY4v5Hsq')">Comprar</button>
       </div>
@@ -127,7 +116,7 @@
         <ul class="text-white/80">
           <li>Armadura de explorador (cuero encantado)</li>
           <li>Mapa especial del mod JourneyMap</li>
-          <li>Brujula avanzada</li>
+          <li>Brújula avanzada</li>
           <li>3 stacks de pan</li>
           <li>1 artefacto aleatorio</li>
         </ul>
@@ -144,7 +133,9 @@
           <li>Comida de dragón</li>
           <li>Bastón de dragón</li>
           <li>Flauta de dragón</li>
+          <li><strong>Incluye además todo lo del <em>Pack de Exploración</em> (mapas, brújula, 3 stacks de pan, etc.)</strong></li>
         </ul>
+        <p class="text-sm text-yellow-400 mt-2">(También incluye elementos de los packs Starter y Automatización según disponibilidad)</p>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="openModal('Pack Mega Combo', 'https://discord.gg/uY4v5Hsq')">Comprar</button>
       </div>
 
@@ -161,6 +152,10 @@
       <p>Si quieres comprar este pack, abre un ticket en:</p>
       <p><a href="https://discord.gg/uY4v5Hsq" target="_blank" id="modal-link">https://discord.gg/uY4v5Hsq</a></p>
       <p class="mt-2 text-sm text-yellow-400">Cada pack que compres ayudará a mejorar el servidor y recompensará a los jugadores.</p>
+      <div class="mt-4 flex justify-center gap-3">
+        <button onclick="copyLink()" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-xl text-white font-bold">Copiar enlace</button>
+        <button onclick="closeModal()" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-xl text-white font-bold">Cerrar</button>
+      </div>
     </div>
   </div>
 
@@ -174,6 +169,19 @@
     function closeModal() {
       document.getElementById('modal').style.display = 'none';
     }
+    function copyLink() {
+      const link = document.getElementById('modal-link').href;
+      navigator.clipboard.writeText(link).then(() => {
+        alert('Enlace copiado al portapapeles: ' + link);
+      }).catch(()=> {
+        alert('No se pudo copiar. Selecciona y copia manualmente: ' + link);
+      });
+    }
+    // cerrar modal al pulsar fuera
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('modal');
+      if (e.target === modal) closeModal();
+    });
   </script>
 
 </body>
