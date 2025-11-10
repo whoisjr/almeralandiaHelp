@@ -42,6 +42,13 @@
       color: #FFD700;
       word-break: break-all;
     }
+    ul {
+      text-align: left;
+      margin-left: 1.5rem;
+    }
+    li::before {
+      content: "🟩 ";
+    }
   </style>
 </head>
 <body class="min-h-screen relative flex flex-col justify-center items-center">
@@ -62,7 +69,13 @@
       <div class="p-6 bg-gray-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
         <h2 class="text-3xl font-bold text-white mb-2">🎁 Pack Gratis <span class="text-yellow-400">(Gratis)</span></h2>
         <img src="https://i.pinimg.com/736x/56/b9/3e/56b93e1f2e5661532b516877c8296828.jpg" alt="Pack Gratis" class="mb-2 rounded-lg">
-        <p class="text-white/80">Incluye 1 artefacto aleatorio para comenzar tu aventura.</p>
+        <ul class="text-white/80">
+          <li>1 artefacto aleatorio del mod Artifacts</li>
+          <li>Armadura completa de hierro</li>
+          <li>Espada, pico y hacha de hierro</li>
+          <li>35 panes</li>
+          <li>64 bloques de madera</li>
+        </ul>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="openModal('Pack Gratis', 'https://discord.gg/uY4v5Hsq')">Comprar</button>
       </div>
 
@@ -70,7 +83,13 @@
       <div class="p-6 bg-gray-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
         <h2 class="text-3xl font-bold text-white mb-2">🐞 Pack Reportador de Bugs <span class="text-yellow-400">(Gratis)</span></h2>
         <img src="https://i.pinimg.com/736x/56/b9/3e/56b93e1f2e5661532b516877c8296828.jpg" alt="Pack Reportador de Bugs" class="mb-2 rounded-lg">
-        <p class="text-white/80">Como el pack gratis, pero con un extra para ayudarte en tus aventuras.</p>
+        <ul class="text-white/80">
+          <li>Todo lo del Pack Gratis</li>
+          <li>1 artefacto adicional del mod Artifacts</li>
+          <li>1 stack adicional de pan</li>
+          <li>1 tótem de inmortalidad</li>
+        </ul>
+        <p class="text-sm text-yellow-400 mt-2">Cada bug que reportes será recompensado 💰</p>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="openModal('Pack Reportador de Bugs', 'https://discord.gg/uY4v5Hsq')">Comprar</button>
       </div>
 
@@ -78,7 +97,13 @@
       <div class="p-6 bg-purple-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
         <h2 class="text-3xl font-bold text-purple-400 mb-2">🎒 Pack de Inicio <span class="text-yellow-400">(3€)</span></h2>
         <img src="https://i.ytimg.com/vi/m0e9fhNxJxc/maxresdefault.jpg" alt="Pack de Inicio" class="mb-2 rounded-lg">
-        <p class="text-white/80">Armadura de hierro completa, espada, pico, hacha, 35 panes y 64 bloques de madera.</p>
+        <ul class="text-white/80">
+          <li>Armadura completa de hierro</li>
+          <li>Espada, pico y hacha de hierro</li>
+          <li>35 panes</li>
+          <li>64 bloques de madera</li>
+          <li>1 artefacto aleatorio</li>
+        </ul>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="openModal('Pack de Inicio', 'https://discord.gg/uY4v5Hsq')">Comprar</button>
       </div>
 
@@ -86,7 +111,12 @@
       <div class="p-6 bg-green-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
         <h2 class="text-3xl font-bold text-green-400 mb-2">⚙️ Pack de Automatización <span class="text-yellow-400">(4,50€)</span></h2>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDtH7O2pRbVwvglfT0lh0s-YR1ZfpVHyJV3g&s" alt="Pack de Automatización" class="mb-2 rounded-lg">
-        <p class="text-white/80">Incluye mods y materiales para automatizar tu mundo.</p>
+        <ul class="text-white/80">
+          <li>3 artefactos aleatorios</li>
+          <li>Materiales del mod Create</li>
+          <li>Bloques de redstone y hierro</li>
+          <li>1 mochila de viajero</li>
+        </ul>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="openModal('Pack de Automatización', 'https://discord.gg/uY4v5Hsq')">Comprar</button>
       </div>
 
@@ -94,7 +124,13 @@
       <div class="p-6 bg-blue-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
         <h2 class="text-3xl font-bold text-blue-400 mb-2">🗺️ Pack de Exploración <span class="text-yellow-400">(5,50€)</span></h2>
         <img src="https://media.forgecdn.net/attachments/928/852/1.png" alt="Pack de Exploración" class="mb-2 rounded-lg">
-        <p class="text-white/80">Todo lo necesario para explorar tu mundo, incluyendo 3 stacks de pan.</p>
+        <ul class="text-white/80">
+          <li>Armadura de explorador (cuero encantado)</li>
+          <li>Mapa especial del mod JourneyMap</li>
+          <li>Brujula avanzada</li>
+          <li>3 stacks de pan</li>
+          <li>1 artefacto aleatorio</li>
+        </ul>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="openModal('Pack de Exploración', 'https://discord.gg/uY4v5Hsq')">Comprar</button>
       </div>
 
@@ -102,7 +138,13 @@
       <div class="p-6 bg-red-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
         <h2 class="text-3xl font-bold text-red-400 mb-2">🐉 Pack Mega Combo <span class="text-yellow-400">(10€)</span></h2>
         <img src="https://www.minecraft-installer.de/Dateien/BilderHQ/Ice%20and%20Fire.jpg" alt="Pack Mega Combo" class="mb-2 rounded-lg">
-        <p class="text-white/80">Incluye dragon del mod Ice & Fire con montura, comida, bastón y flauta de dragón.</p>
+        <ul class="text-white/80">
+          <li>1 Dragón domesticado del mod Ice & Fire</li>
+          <li>Montura de dragón</li>
+          <li>Comida de dragón</li>
+          <li>Bastón de dragón</li>
+          <li>Flauta de dragón</li>
+        </ul>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="openModal('Pack Mega Combo', 'https://discord.gg/uY4v5Hsq')">Comprar</button>
       </div>
 
