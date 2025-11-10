@@ -92,6 +92,7 @@
           <li>35 panes</li>
           <li>64 bloques de madera</li>
           <li>1 artefacto aleatorio</li>
+          <li>🐉 <strong>1 huevo aleatorio del mod Ice & Fire</strong> (puede tocarte un dragón)</li>
         </ul>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="openModal('Pack de Inicio', 'https://discord.gg/uY4v5Hsq')">Comprar</button>
       </div>
@@ -177,7 +178,6 @@
         alert('No se pudo copiar. Selecciona y copia manualmente: ' + link);
       });
     }
-    // cerrar modal al pulsar fuera
     window.addEventListener('click', (e) => {
       const modal = document.getElementById('modal');
       if (e.target === modal) closeModal();
