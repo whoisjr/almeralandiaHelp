@@ -15,73 +15,108 @@
       color: #FFD700;
       text-decoration: underline;
     }
-    .pack-card img {
-      border-radius: 1rem;
-      max-height: 200px;
-      object-fit: cover;
+    .pack-img {
       width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 0.75rem;
+    }
+    .message-box {
+      background: #111;
+      border: 2px solid #FFD700;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      margin-top: 0.5rem;
+      text-align: center;
+      word-wrap: break-word;
     }
   </style>
 </head>
 <body class="min-h-screen relative flex flex-col justify-center items-center">
 
   <!-- Fondo e overlay -->
-  <div class="absolute inset-0 bg-[url('https://picsum.photos/id/1018/1920/1080')] bg-cover bg-center"></div>
+  <div class="absolute inset-0 bg-[url('https://i.pinimg.com/736x/61/da/39/61da398468d98b910891ea3ac0678bda.jpg')] bg-cover bg-center"></div>
   <div class="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50"></div>
 
   <!-- Contenedor principal -->
   <div class="relative z-10 max-w-6xl text-center p-12 bg-black/30 rounded-3xl shadow-2xl space-y-8">
     <h1 class="text-6xl font-extrabold text-yellow-400 mb-4">🛒 Tienda Almeralandia</h1>
-    <p class="text-xl text-white/90 mb-8">Consigue items especiales y contenido exclusivo del servidor.</p>
+    <p class="text-xl text-white/90 mb-8">Aquí podrás conseguir items especiales y contenido exclusivo del servidor.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
       <!-- Pack Gratis -->
-      <div class="pack-card p-6 bg-green-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
-        <img src="https://picsum.photos/id/1025/400/200" alt="Pack Gratis">
-        <h2 class="text-3xl font-bold text-green-400 mt-4 mb-2">🎁 Pack Gratis (cada 3 días)</h2>
-        <p class="text-white/80 mb-2">Set completo de hierro + espada, pico y hacha + 35 panes + 64 bloques de madera + 1 Artefacto.</p>
-        <button onclick="comprarPack('🎁 Pack Gratis')" class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold">Obtener Gratis</button>
-      </div>
-
-      <!-- Pack de Inicio -->
-      <div class="pack-card p-6 bg-purple-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
-        <img src="https://picsum.photos/id/1024/400/200" alt="Pack de Inicio">
-        <h2 class="text-3xl font-bold text-purple-400 mt-4 mb-2">✨ Pack de Inicio - €3</h2>
-        <p class="text-white/80 mb-2">Dragón Ice & Fire + montura, comida, bastón y flauta + 3 Artefactos + bloques raros.</p>
-        <button onclick="comprarPack('✨ Pack de Inicio')" class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold">Comprar</button>
-      </div>
-
-      <!-- Pack de Automatización -->
-      <div class="pack-card p-6 bg-blue-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
-        <img src="https://picsum.photos/id/1035/400/200" alt="Pack Automatización">
-        <h2 class="text-3xl font-bold text-blue-400 mt-4 mb-2">🛠 Pack de Automatización - €4.50</h2>
-        <p class="text-white/80 mb-2">Maquinaria de Create + Industrial Foregoing + recursos + ChanceCubes + 1 mascota.</p>
-        <button onclick="comprarPack('🛠 Pack de Automatización')" class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold">Comprar</button>
-      </div>
-
-      <!-- Pack de Exploración -->
-      <div class="pack-card p-6 bg-red-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
-        <img src="https://picsum.photos/id/1040/400/200" alt="Pack Exploración">
-        <h2 class="text-3xl font-bold text-red-400 mt-4 mb-2">🌲 Pack de Exploración - €5.50</h2>
-        <p class="text-white/80 mb-2">Portal Twilight Forest, huevos de mobs raros, Artefactos + 3 stacks de pan.</p>
-        <button onclick="comprarPack('🌲 Pack de Exploración')" class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold">Comprar</button>
-      </div>
-
-      <!-- Pack Mega Combo -->
-      <div class="pack-card p-6 bg-orange-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
-        <img src="https://picsum.photos/id/1050/400/200" alt="Pack Mega Combo">
-        <h2 class="text-3xl font-bold text-orange-400 mt-4 mb-2">💎 Pack Mega Combo - €10</h2>
-        <p class="text-white/80 mb-2">Starter + Automatización + Exploración + montura rara + 2-3 Artefactos + ChanceCubes + recursos extra.</p>
-        <button onclick="comprarPack('💎 Pack Mega Combo')" class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold">Comprar</button>
+      <div class="p-6 bg-gray-900/60 rounded-xl shadow-md hover:scale-105 transition-all">
+        <img src="https://i.pinimg.com/736x/56/b9/3e/56b93e1f2e5661532b516877c8296828.jpg" alt="Pack Gratis" class="pack-img mb-4">
+        <h2 class="text-3xl font-bold text-yellow-400 mb-2">🎁 Pack Gratis</h2>
+        <p class="text-white/80 mb-2">Cada 3 días podrás reclamar 1 artefacto aleatorio del mod Artifacts.</p>
+        <button class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="showMessage('Pack Gratis')">Comprar</button>
+        <div id="msg-Pack-Gratis" class="message-box hidden">
+          Copia este enlace para crear tu ticket de compra: <br>
+          <a href="https://discord.gg/uY4v5Hsq" target="_blank" class="underline">https://discord.gg/uY4v5Hsq</a><br>
+          Cada bug que reportes se te recompensará.
+        </div>
       </div>
 
       <!-- Pack Reportador de Bugs -->
-      <div class="pack-card p-6 bg-pink-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
-        <img src="https://picsum.photos/id/1060/400/200" alt="Pack Reportador">
-        <h2 class="text-3xl font-bold text-pink-400 mt-4 mb-2">🐞 Pack Reportador de Bugs</h2>
-        <p class="text-white/80 mb-2">Como el Pack Gratis pero un poco mejor + 1 Artefacto mejorado. Cada bug que reportes se te recompensará.</p>
-        <button onclick="comprarPack('🐞 Pack Reportador de Bugs')" class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold">Obtener</button>
+      <div class="p-6 bg-gray-900/60 rounded-xl shadow-md hover:scale-105 transition-all">
+        <img src="https://i.pinimg.com/736x/56/b9/3e/56b93e1f2e5661532b516877c8296828.jpg" alt="Pack Reportador de Bugs" class="pack-img mb-4">
+        <h2 class="text-3xl font-bold text-red-400 mb-2">🐞 Pack Reportador de Bugs</h2>
+        <p class="text-white/80 mb-2">Mejora del pack gratis: incluye 2 artefactos y una pequeña sorpresa extra.</p>
+        <button class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="showMessage('Pack Reportador')">Comprar</button>
+        <div id="msg-Pack-Reportador" class="message-box hidden">
+          Copia este enlace para crear tu ticket de compra: <br>
+          <a href="https://discord.gg/uY4v5Hsq" target="_blank" class="underline">https://discord.gg/uY4v5Hsq</a><br>
+          Cada bug que reportes se te recompensará.
+        </div>
+      </div>
+
+      <!-- Pack de Inicio -->
+      <div class="p-6 bg-purple-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
+        <img src="https://i.ytimg.com/vi/m0e9fhNxJxc/maxresdefault.jpg" alt="Pack de Inicio" class="pack-img mb-4">
+        <h2 class="text-3xl font-bold text-purple-400 mb-2">🎒 Pack de Inicio</h2>
+        <p class="text-white/80 mb-2">Incluye: armadura de hierro completa, espada, pico y hacha, 35 panes, 64 bloques de madera.</p>
+        <button class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="showMessage('Pack Inicio')">Comprar</button>
+        <div id="msg-Pack-Inicio" class="message-box hidden">
+          Copia este enlace para crear tu ticket de compra: <br>
+          <a href="https://discord.gg/uY4v5Hsq" target="_blank" class="underline">https://discord.gg/uY4v5Hsq</a>
+        </div>
+      </div>
+
+      <!-- Pack de Automatización -->
+      <div class="p-6 bg-green-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDtH7O2pRbVwvglfT0lh0s-YR1ZfpVHyJV3g&s" alt="Pack Automatización" class="pack-img mb-4">
+        <h2 class="text-3xl font-bold text-green-400 mb-2">⚙️ Pack Automatización</h2>
+        <p class="text-white/80 mb-2">Incluye 3 artefactos y recursos para tus primeras máquinas.</p>
+        <button class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="showMessage('Pack Automatización')">Comprar</button>
+        <div id="msg-Pack-Automatizacion" class="message-box hidden">
+          Copia este enlace para crear tu ticket de compra: <br>
+          <a href="https://discord.gg/uY4v5Hsq" target="_blank" class="underline">https://discord.gg/uY4v5Hsq</a>
+        </div>
+      </div>
+
+      <!-- Pack de Exploración -->
+      <div class="p-6 bg-blue-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
+        <img src="https://media.forgecdn.net/attachments/928/852/1.png" alt="Pack Exploración" class="pack-img mb-4">
+        <h2 class="text-3xl font-bold text-blue-400 mb-2">🗺️ Pack Exploración</h2>
+        <p class="text-white/80 mb-2">Incluye mapas, brújula, barco, mochila y recursos de exploración.</p>
+        <button class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="showMessage('Pack Exploración')">Comprar</button>
+        <div id="msg-Pack-Exploracion" class="message-box hidden">
+          Copia este enlace para crear tu ticket de compra: <br>
+          <a href="https://discord.gg/uY4v5Hsq" target="_blank" class="underline">https://discord.gg/uY4v5Hsq</a>
+        </div>
+      </div>
+
+      <!-- Pack Mega Combo -->
+      <div class="p-6 bg-red-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
+        <img src="https://www.minecraft-installer.de/Dateien/BilderHQ/Ice%20and%20Fire.jpg" alt="Pack Mega Combo" class="pack-img mb-4">
+        <h2 class="text-3xl font-bold text-red-400 mb-2">🐉 Pack Mega Combo</h2>
+        <p class="text-white/80 mb-2">Incluye un dragón del mod Ice and Fire, comida, bastón y flauta de dragón.</p>
+        <button class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="showMessage('Pack Mega Combo')">Comprar</button>
+        <div id="msg-Pack-Mega" class="message-box hidden">
+          Copia este enlace para crear tu ticket de compra: <br>
+          <a href="https://discord.gg/uY4v5Hsq" target="_blank" class="underline">https://discord.gg/uY4v5Hsq</a>
+        </div>
       </div>
 
     </div>
@@ -90,9 +125,31 @@
   </div>
 
   <script>
-    function comprarPack(packName) {
-      const mensaje = `Has seleccionado el pack: ${packName}.\n\nPara completar la compra, ve a nuestro Discord y crea un ticket:\nhttps://discord.gg/uY4v5Hsq\n\n(Copia este mensaje si quieres)`;
-      alert(mensaje);
+    function showMessage(packId) {
+      // Ocultar todos
+      document.querySelectorAll('.message-box').forEach(box => box.classList.add('hidden'));
+
+      // Mostrar el correspondiente
+      switch(packId) {
+        case 'Pack Gratis':
+          document.getElementById('msg-Pack-Gratis').classList.remove('hidden');
+          break;
+        case 'Pack Reportador':
+          document.getElementById('msg-Pack-Reportador').classList.remove('hidden');
+          break;
+        case 'Pack Inicio':
+          document.getElementById('msg-Pack-Inicio').classList.remove('hidden');
+          break;
+        case 'Pack Automatización':
+          document.getElementById('msg-Pack-Automatizacion').classList.remove('hidden');
+          break;
+        case 'Pack Exploración':
+          document.getElementById('msg-Pack-Exploracion').classList.remove('hidden');
+          break;
+        case 'Pack Mega Combo':
+          document.getElementById('msg-Pack-Mega').classList.remove('hidden');
+          break;
+      }
     }
   </script>
 </body>
