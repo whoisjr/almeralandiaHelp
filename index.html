@@ -124,9 +124,34 @@
       </div>
     </div>
 
-    <!-- Bug Reporting with Custom Login/Register -->
+    <!-- Download Buttons -->
+    <div class="mt-12 flex flex-wrap justify-center gap-6">
+      <a href="https://drive.google.com/drive/folders/1cF-Y6Xblh9_m7g43tQcXq0F9K14LTbO1?usp=sharing"
+         target="_blank"
+         class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-2xl text-lg shadow-lg transform hover:scale-105 transition-all">
+         🔽 Download Updaters
+      </a>
+      <a href="https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.213/neoforge-21.1.213-installer.jar"
+         target="_blank"
+         class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-2xl text-lg shadow-lg transform hover:scale-105 transition-all">
+         🛠 Download NeoForge
+      </a>
+      <a href="https://drive.google.com/drive/folders/1cF-Y6Xblh9_m7g43tQcXq0F9K14LTbO1?usp=sharing"
+         target="_blank"
+         class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-2xl text-lg shadow-lg transform hover:scale-105 transition-all">
+         ✨ Update Emotes
+      </a>
+      <a href="https://whoisjr.github.io/almeralandiaHelp/tienda"
+         target="_blank"
+         class="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-2xl text-lg shadow-lg transform hover:scale-105 transition-all">
+         🛒 Visit Shop
+      </a>
+    </div>
+
+    <!-- Custom Login/Register & Bug Form -->
     <div class="mt-10">
-      <h2 class="text-4xl font-bold text-red-400 mb-6">🐛 Report a Bug</h2>
+      <h2 class="text-4xl font-bold text-red-400 mb-2">🐛 Report a Bug</h2>
+      <p class="text-sm text-gray-300 mb-4">Each bug you report will be rewarded!</p>
 
       <div id="auth-section" class="mb-4 space-y-4">
         <input type="text" id="register-username" placeholder="Username" class="p-3 rounded-xl w-full max-w-md">
@@ -145,25 +170,8 @@
         <textarea id="bug-desc" placeholder="Bug Description" class="p-3 rounded-xl w-full max-w-md h-32"></textarea>
         <button id="submit-bug" class="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-2xl font-bold">Submit Bug</button>
       </div>
-    </div>
 
-    <!-- Download Buttons -->
-    <div class="mt-12 flex flex-wrap justify-center gap-6">
-      <a href="https://drive.google.com/drive/folders/1cF-Y6Xblh9_m7g43tQcXq0F9K14LTbO1?usp=sharing"
-         target="_blank"
-         class="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-2xl text-lg shadow-lg transform hover:scale-105 transition-all">
-         🔽 Download Updaters
-      </a>
-      <a href="https://maven.neoforged.net/releases/net/neoforged/neoforge/21.1.213/neoforge-21.1.213-installer.jar"
-         target="_blank"
-         class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-2xl text-lg shadow-lg transform hover:scale-105 transition-all">
-         🛠 Download NeoForge
-      </a>
-      <a href="https://drive.google.com/drive/folders/1cF-Y6Xblh9_m7g43tQcXq0F9K14LTbO1?usp=sharing"
-         target="_blank"
-         class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-2xl text-lg shadow-lg transform hover:scale-105 transition-all">
-         ✨ Update Emotes
-      </a>
+      <div id="bug-list" class="mt-6 space-y-3 text-left max-w-3xl w-full"></div>
     </div>
 
     <p class="mt-10 text-gray-400 text-sm">© 2025 Almeralandia — NeoForge 1.21.1 Server</p>
@@ -182,11 +190,22 @@
     const loginBtn = document.getElementById('login-btn');
     const authSection = document.getElementById('auth-section');
     const bugForm = document.getElementById('bug-form');
+    const bugList = document.getElementById('bug-list');
+
+    function renderBugs() {
+      const bugs = JSON.parse(localStorage.getItem('bugs') || '[]');
+      bugList.innerHTML = '';
+      bugs.forEach(b => {
+        const div = document.createElement('div');
+        div.className = "p-3 bg-gray-900/60 rounded-xl text-gray-100";
+        div.innerHTML = `<b>${b.user}</b> (${new Date(b.date).toLocaleString()}):<br>${b.title}<br>${b.desc}`;
+        bugList.appendChild(div);
+      });
+    }
 
     registerBtn.addEventListener('click', () => {
       const username = document.getElementById('register-username').value;
       const password = document.getElementById('register-password').value;
-
       if(username && password) {
         if(localStorage.getItem('user_' + username)) {
           alert('Username already exists!');
@@ -194,31 +213,25 @@
           localStorage.setItem('user_' + username, password);
           alert('Registration successful! You can now login.');
         }
-      } else {
-        alert('Please fill in both fields.');
-      }
+      } else alert('Please fill in both fields.');
     });
 
     loginBtn.addEventListener('click', () => {
       const username = document.getElementById('login-username').value;
       const password = document.getElementById('login-password').value;
       const storedPassword = localStorage.getItem('user_' + username);
-
       if(storedPassword && storedPassword === password) {
         alert('Login successful!');
         authSection.style.display = 'none';
         bugForm.classList.remove('hidden');
         localStorage.setItem('currentUser', username);
-      } else {
-        alert('Invalid username or password.');
-      }
+      } else alert('Invalid username or password.');
     });
 
     document.getElementById('submit-bug').addEventListener('click', () => {
       const title = document.getElementById('bug-title').value;
       const desc = document.getElementById('bug-desc').value;
       const user = localStorage.getItem('currentUser');
-
       if(title && desc && user) {
         const bugs = JSON.parse(localStorage.getItem('bugs') || '[]');
         bugs.push({user, title, desc, date: new Date().toISOString()});
@@ -226,10 +239,12 @@
         alert('Bug submitted! Thank you.');
         document.getElementById('bug-title').value = '';
         document.getElementById('bug-desc').value = '';
-      } else {
-        alert('Please fill in all fields.');
-      }
+        renderBugs();
+      } else alert('Please fill in all fields.');
     });
+
+    // Render bugs on page load
+    renderBugs();
   </script>
 </body>
 </html>
