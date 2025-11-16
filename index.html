@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Almeralandia Modpack</title>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2795937245284499"
+       crossorigin="anonymous"></script>
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <style>
     .faq-item button {
       transition: all 0.3s ease;
@@ -26,9 +32,39 @@
       text-decoration: underline;
       color: #FFD700;
     }
+
+    /* Ocultar anuncios laterales en móvil */
+    @media(max-width: 900px) {
+      .ad-left, .ad-right {
+        display: none;
+      }
+    }
   </style>
 </head>
+
 <body class="min-h-screen relative flex flex-col justify-center items-center font-sans">
+
+  <!-- ANUNCIO IZQUIERDO -->
+  <div class="ad-left" style="position: fixed; left: 10px; top: 50%; transform: translateY(-50%); z-index: 9999;">
+    <ins class="adsbygoogle"
+        style="display:block;width:160px;height:600px"
+        data-ad-client="ca-pub-2795937245284499"
+        data-ad-slot="1234567890"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <!-- ANUNCIO DERECHO -->
+  <div class="ad-right" style="position: fixed; right: 10px; top: 50%; transform: translateY(-50%); z-index: 9999;">
+    <ins class="adsbygoogle"
+        style="display:block;width:160px;height:600px"
+        data-ad-client="ca-pub-2795937245284499"
+        data-ad-slot="1234567891"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
 
   <!-- Fondo -->
   <div class="absolute inset-0 bg-[url('https://i.pinimg.com/736x/61/da/39/61da398468d98b910891ea3ac0678bda.jpg')] bg-cover bg-center"></div>
@@ -219,5 +255,6 @@
 
     renderBugs();
   </script>
+
 </body>
 </html>
