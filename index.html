@@ -32,8 +32,6 @@
       text-decoration: underline;
       color: #FFD700;
     }
-
-    /* Ocultar anuncios laterales en móvil */
     @media(max-width: 900px) {
       .ad-left, .ad-right {
         display: none;
@@ -102,6 +100,7 @@
     <!-- Paso 3 -->
     <div class="step p-6 bg-gradient-to-r from-purple-900/50 to-purple-800/50 rounded-xl shadow-md hover:scale-105 transition-all">
       <h2 class="text-3xl font-bold text-purple-400 mb-2">3️⃣ Conéctate al servidor mediante Radmin VPN</h2>
+
       <p class="ml-4 text-white/80 mb-2">El servidor ahora funciona mediante <b>Radmin VPN</b>.  
       Sigue estos pasos para conectarte correctamente:</p>
 
@@ -134,7 +133,7 @@
       <p class="ml-4 text-white/80">Cada vez que se añadan nuevos mods o cambios, se descargarán automáticamente al ejecutar el actualizador.</p>
     </div>
 
-    <!-- Sección de reportar bugs -->
+    <!-- Bug Reports -->
     <div class="mt-10">
       <h2 class="text-4xl font-bold text-red-400 mb-2">🐛 Reportar un bug</h2>
       <p class="text-sm text-gray-300 mb-4">¡Cada bug que reportes será recompensado dentro del servidor!</p>
@@ -188,14 +187,25 @@
     <p class="text-gray-400 text-sm">💬 Creado por whoiisjr ❤️ | 🧪 Probado por Alx20</p>
   </div>
 
+  <!-- Anuncio responsive recomendado por Google -->
+  <div class="w-full mt-10 flex justify-center">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2795937245284499"
+         data-ad-slot="9876543210"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <script>
-    // Alternar FAQ
     function toggleFAQ(button) {
       const answer = button.nextElementSibling;
       answer.classList.toggle("show");
     }
 
-    // Registro/Login + Bugs
     const registerBtn = document.getElementById('register-btn');
     const loginBtn = document.getElementById('login-btn');
     const authSection = document.getElementById('auth-section');
