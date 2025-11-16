@@ -168,12 +168,13 @@
   <div id="checkout-modal" class="modal flex">
     <div class="modal-content">
       <span class="close-btn" onclick="closeCheckout()">&times;</span>
-      <div id="checkout-message">
-        ¡Gracias por tu compra! Cada compra ayuda a mantener el servidor y a seguir actualizándolo.<br>
-        1️⃣ Copia tu carrito<br>
-        2️⃣ Abre un ticket en <a href="https://discord.gg/MzFBDVK9MC" target="_blank">Discord</a><br>
-        3️⃣ Pégalo en el ticket
-      </div>
+<div id="checkout-message">
+  ¡Gracias por tu compra! Cada compra ayuda a mantener el servidor y a seguir actualizándolo.<br>
+  1️⃣ Copia tu carrito<br>
+  2️⃣ Abre un ticket en <a href="https://discord.gg/MzFBDVK9MC" target="_blank" style="color: #00FF00;">Discord</a><br>
+  3️⃣ Pégalo en el ticket
+</div>
+
       <textarea id="checkout-text" rows="8" readonly></textarea>
       <button onclick="copyCheckout()" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-xl text-white font-bold mt-2">Copiar al portapapeles</button>
     </div>
