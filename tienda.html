@@ -43,7 +43,8 @@
     z-index: 60;
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
   }
-  #checkout-message { color: #FFD700; font-weight: bold; margin-bottom: 1rem; }
+  #checkout-message { color: #FFD700; font-weight: bold; margin-bottom: 1rem; text-align: left; }
+  #checkout-text { width: 100%; padding: 0.5rem; border-radius: 0.5rem; margin-top: 0.5rem; color: black; }
 </style>
 </head>
 <body class="min-h-screen relative flex flex-col justify-center items-center">
@@ -60,7 +61,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-      <!-- Pack Gratis -->
+      <!-- Pack Gratis (sin botón) -->
       <div class="p-6 bg-gray-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
         <h2 class="text-3xl font-bold text-white mb-2">🎁 Pack Gratis <span class="text-yellow-400">(Gratis)</span></h2>
         <img src="https://i.pinimg.com/736x/56/b9/3e/56b93e1f2e5661532b516877c8296828.jpg" alt="Pack Gratis" class="mb-2 rounded-lg">
@@ -71,10 +72,9 @@
           <li>35 panes</li>
           <li>64 bloques de madera</li>
         </ul>
-        <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="addToCart('Pack Gratis')">Agregar al carrito</button>
       </div>
 
-      <!-- Pack Reportador de Bugs -->
+      <!-- Pack Reportador de Bugs (sin botón) -->
       <div class="p-6 bg-gray-900/50 rounded-xl shadow-md hover:scale-105 transition-all">
         <h2 class="text-3xl font-bold text-white mb-2">🐞 Pack Reportador de Bugs <span class="text-yellow-400">(Gratis)</span></h2>
         <img src="https://i.pinimg.com/736x/56/b9/3e/56b93e1f2e5661532b516877c8296828.jpg" alt="Pack Reportador de Bugs" class="mb-2 rounded-lg">
@@ -85,7 +85,6 @@
           <li>+ 1 tótem de inmortalidad</li>
         </ul>
         <p class="text-sm text-yellow-400 mt-2">Cada bug que reportes será recompensado 💰</p>
-        <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="addToCart('Pack Reportador de Bugs')">Agregar al carrito</button>
       </div>
 
       <!-- Pack de Inicio -->
@@ -98,7 +97,7 @@
           <li>35 panes</li>
           <li>64 bloques de madera</li>
           <li>1 artefacto aleatorio</li>
-          <li>🐉 <strong>1 huevo aleatorio del mod Ice & Fire</strong> (puede tocarte un dragón)</li>
+          <li>🐉 <strong>1 huevo aleatorio del mod Ice & Fire</strong></li>
         </ul>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="addToCart('Pack de Inicio')">Agregar al carrito</button>
       </div>
@@ -140,7 +139,7 @@
           <li>Comida de dragón</li>
           <li>Bastón de dragón</li>
           <li>Flauta de dragón</li>
-          <li><strong>Incluye además todo lo del <em>Pack de Exploración</em> (mapas, brújula, 3 stacks de pan, etc.)</strong></li>
+          <li><strong>Incluye además todo lo del <em>Pack de Exploración</em></strong></li>
         </ul>
         <p class="text-sm text-yellow-400 mt-2">(También incluye elementos de los packs Starter y Automatización según disponibilidad)</p>
         <button class="mt-4 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 rounded-xl font-bold" onclick="addToCart('Pack Mega Combo')">Agregar al carrito</button>
@@ -169,61 +168,73 @@
   <div id="checkout-modal" class="modal flex">
     <div class="modal-content">
       <span class="close-btn" onclick="closeCheckout()">&times;</span>
-      <div id="checkout-message">¡Gracias por tu compra! Cada compra ayuda a mantener el servidor y a seguir actualizándolo.</div>
-      <textarea id="checkout-text" class="w-full p-2 mt-2 rounded-lg text-black" rows="8" readonly></textarea>
+      <div id="checkout-message">
+        ¡Gracias por tu compra! Cada compra ayuda a mantener el servidor y a seguir actualizándolo.<br>
+        1️⃣ Copia tu carrito<br>
+        2️⃣ Abre un ticket en <a href="https://discord.gg/MzFBDVK9MC" target="_blank">Discord</a><br>
+        3️⃣ Pégalo en el ticket
+      </div>
+      <textarea id="checkout-text" rows="8" readonly></textarea>
       <button onclick="copyCheckout()" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-xl text-white font-bold mt-2">Copiar al portapapeles</button>
     </div>
   </div>
 
 <script>
-let cart = [];
+let cart = {};
 
 function addToCart(packName) {
-  cart.push(packName);
+  if(cart[packName]) {
+    cart[packName]++;
+  } else {
+    cart[packName] = 1;
+  }
   updateCartButton();
   alert(packName + " agregado al carrito ✅");
 }
 
-function removeFromCart(index) {
-  cart.splice(index, 1);
+function removeFromCart(packName) {
+  if(cart[packName]) {
+    cart[packName]--;
+    if(cart[packName] <= 0) delete cart[packName];
+  }
   updateCartButton();
   showCart();
 }
 
 function updateCartButton() {
-  document.getElementById('cart-button').textContent = `🛒 Ver Carrito (${cart.length})`;
+  let total = Object.values(cart).reduce((a,b)=>a+b,0);
+  document.getElementById('cart-button').textContent = `🛒 Ver Carrito (${total})`;
 }
 
 function showCart() {
   const itemsList = document.getElementById('cart-items');
-  if(cart.length === 0){
+  if(Object.keys(cart).length === 0){
     itemsList.innerHTML = '<li>El carrito está vacío</li>';
   } else {
-    itemsList.innerHTML = cart.map((item, index) => 
-      `<li>${item} <button onclick="removeFromCart(${index})">Eliminar</button></li>`
+    itemsList.innerHTML = Object.entries(cart).map(([pack, qty]) => 
+      `<li>${pack} x${qty} <button onclick="removeFromCart('${pack}')">Eliminar</button></li>`
     ).join('');
   }
   document.getElementById('cart-modal').style.display = 'flex';
 }
 
-function closeCart() {
-  document.getElementById('cart-modal').style.display = 'none';
-}
+function closeCart() { document.getElementById('cart-modal').style.display = 'none'; }
 
 function finalizeCart() {
-  if(cart.length === 0) {
+  if(Object.keys(cart).length === 0) {
     alert("Tu carrito está vacío 😅");
     return;
   }
-  const checkoutText = "Packs comprados:\n" + cart.join('\n');
+  let checkoutText = "Packs comprados:\n";
+  for(let [pack, qty] of Object.entries(cart)) {
+    checkoutText += `${pack} x${qty}\n`;
+  }
   document.getElementById('checkout-text').value = checkoutText;
   closeCart();
   document.getElementById('checkout-modal').style.display = 'flex';
 }
 
-function closeCheckout() {
-  document.getElementById('checkout-modal').style.display = 'none';
-}
+function closeCheckout() { document.getElementById('checkout-modal').style.display = 'none'; }
 
 function copyCheckout() {
   const text = document.getElementById('checkout-text');
@@ -233,7 +244,6 @@ function copyCheckout() {
   });
 }
 
-// Cerrar modales al hacer clic fuera
 window.addEventListener('click', (e) => {
   if(e.target.id === 'cart-modal') closeCart();
   if(e.target.id === 'checkout-modal') closeCheckout();
