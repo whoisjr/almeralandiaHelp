@@ -28,7 +28,8 @@
   .close-btn { float: right; cursor: pointer; font-weight: bold; color: #FFD700; }
   .modal a { color: #FFD700; word-break: break-all; }
   ul { text-align: left; margin-left: 1rem; }
-  ul li { margin-bottom: 0.25rem; }
+  ul li { margin-bottom: 0.25rem; display: flex; justify-content: space-between; align-items: center; }
+  ul li button { margin-left: 0.5rem; background: #FF4444; border: none; padding: 0.2rem 0.5rem; border-radius: 0.3rem; color: white; cursor: pointer; }
   #cart-button {
     position: fixed;
     bottom: 20px;
@@ -169,7 +170,7 @@
       <span class="close-btn" onclick="closeCheckout()">&times;</span>
       <h2 class="text-2xl font-bold mb-4">¡Compra lista para Discord!</h2>
       <p>Copia y pega este mensaje en Discord:</p>
-      <textarea id="checkout-text" class="w-full p-2 mt-2 rounded-lg text-black" rows="6" readonly></textarea>
+      <textarea id="checkout-text" class="w-full p-2 mt-2 rounded-lg text-black" rows="8" readonly></textarea>
       <button onclick="copyCheckout()" class="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-xl text-white font-bold mt-2">Copiar al portapapeles</button>
     </div>
   </div>
@@ -183,13 +184,25 @@ function addToCart(packName) {
   alert(packName + " agregado al carrito ✅");
 }
 
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCartButton();
+  showCart(); // refresca la lista
+}
+
 function updateCartButton() {
   document.getElementById('cart-button').textContent = `🛒 Ver Carrito (${cart.length})`;
 }
 
 function showCart() {
   const itemsList = document.getElementById('cart-items');
-  itemsList.innerHTML = cart.map(item => `<li>${item}</li>`).join('');
+  if(cart.length === 0){
+    itemsList.innerHTML = '<li>El carrito está vacío</li>';
+  } else {
+    itemsList.innerHTML = cart.map((item, index) => 
+      `<li>${item} <button onclick="removeFromCart(${index})">Eliminar</button></li>`
+    ).join('');
+  }
   document.getElementById('cart-modal').style.display = 'flex';
 }
 
@@ -198,7 +211,11 @@ function closeCart() {
 }
 
 function finalizeCart() {
-  const checkoutText = cart.join('\n');
+  if(cart.length === 0) {
+    alert("Tu carrito está vacío 😅");
+    return;
+  }
+  const checkoutText = "¡Gracias por tu compra! Cada compra ayuda a mantener el servidor y a seguir actualizándolo.\n\nPacks comprados:\n" + cart.join('\n');
   document.getElementById('checkout-text').value = checkoutText;
   closeCart();
   document.getElementById('checkout-modal').style.display = 'flex';
